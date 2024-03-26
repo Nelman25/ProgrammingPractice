@@ -4,7 +4,7 @@
   display: block;
 }
 button {
-  font-size: 25px;
+  font-size: 30px;
   padding: 20px 40px;
   background-color: hsl(219, 84%, 71%);
   color: white;
@@ -14,12 +14,16 @@ button {
   transition: background-color 0.25s;
 }
 button:hover {
-  background-color: hsl(219, 84%,61%);
+  background-color: hsl(219, 84%, 61%);
 }
-.buttonContainer{
+.buttonContainer {
   display: flex;
   justify-content: center;
 }
 body {
-  background-image: linear-gradient(to right, rgb(218, 218, 76), rgb(228, 141, 155));
+  background-image: linear-gradient(
+    to right,
+    rgb(218, 218, 76),
+    rgb(228, 141, 155)
+  );
 }
