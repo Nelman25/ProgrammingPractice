@@ -8,7 +8,7 @@ function rollDice() {
   for(let i = 0; i<numOfDice;i++) {
     let value = Math.floor((Math.random()*6) + 1);
     values.push(value);
-    images.push(`<img src="diceImages/${value}.png">`)  
+    images.push(`<img class="Image" src="diceImages/${value}.png">`)
   }
   resultDisplay.textContent = `Dice: ${values.join(", ")}`;
   diceImages.innerHTML = images.join("");
