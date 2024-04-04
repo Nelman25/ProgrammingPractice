@@ -26,7 +26,7 @@ public class LaunchPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==button) {
             frame.dispose();
-            NewWindow newWindow = new NewWindow();
+            new NewWindow();
         }
     }
 }
