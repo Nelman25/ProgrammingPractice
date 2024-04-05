@@ -5,39 +5,60 @@ import java.awt.event.ActionListener;
 
 public class MyFrame extends JFrame implements ActionListener {
 
-    JButton button;
-    JCheckBox checkBox;
-    ImageIcon xImage;
-    ImageIcon checkImage;
+    JRadioButton pizzaButton;
+    JRadioButton hamburgerButton;
+    JRadioButton hotdogButton;
+    ImageIcon pizzaIcon;
+    ImageIcon hamburgerIcon;
+    ImageIcon hotdogIcon;
 
     MyFrame() {
+        this.setTitle("Java Swing Radio buttons practice");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Java Swing checkbox practice");
         this.setLayout(new FlowLayout());
 
-        xImage = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\xImage (1).png");
-        checkImage = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\checkImage (1).jpg");
+        pizzaButton = new JRadioButton("Pizza");
+        hamburgerButton = new JRadioButton("Hamburger");
+        hotdogButton = new JRadioButton("Hotdog");
 
-        button = new JButton();
-        button.setText("Submit");
-        button.addActionListener(this);
+        pizzaButton.setFocusable(false);
+        hamburgerButton.setFocusable(false);
+        hotdogButton.setFocusable(false);
 
-        checkBox = new JCheckBox();
-        checkBox.setText("I'm not a robot");
-        checkBox.setFocusable(false);
-        checkBox.setFont(new Font("Consolas", Font.PLAIN, 35));
-        checkBox.setIcon(xImage);
-        checkBox.setSelectedIcon(checkImage);
-        
-        this.add(checkBox);
-        this.add(button);
+        pizzaIcon = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\pizza (1).png");
+        hamburgerIcon = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\hamburger (1).png");
+        hotdogIcon = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\hotdog (1).png");
+
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(pizzaButton);
+        buttonGroup.add(hamburgerButton);
+        buttonGroup.add(hotdogButton);
+
+        pizzaButton.setIcon(pizzaIcon);
+        hamburgerButton.setIcon(hamburgerIcon);
+        hotdogButton.setIcon(hotdogIcon);
+
+        pizzaButton.addActionListener(this);
+        hamburgerButton.addActionListener(this);
+        hotdogButton.addActionListener(this);
+
+        this.add(pizzaButton);
+        this.add(hamburgerButton);
+        this.add(hotdogButton);
         this.pack();
         this.setVisible(true);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==button) {
-            System.out.println(checkBox.isSelected());
+        if(e.getSource()==pizzaButton) {
+            System.out.println("You picked Pizza");
+        }
+        else if (e.getSource()==hamburgerButton) {
+            System.out.println("You picked Hamburger");
+        }
+        else {
+            System.out.println("You picked Hotdog");
         }
     }
 }
