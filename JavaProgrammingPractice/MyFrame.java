@@ -1,44 +1,43 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyFrame extends JFrame implements ActionListener {
 
-    JButton button = new JButton("Submit");
-    JTextField textField = new JTextField();
+    JButton button;
+    JCheckBox checkBox;
+    ImageIcon xImage;
+    ImageIcon checkImage;
 
     MyFrame() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Java Swing checkbox practice");
+        this.setLayout(new FlowLayout());
 
-        button.setFocusable(false);
+        xImage = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\xImage (1).png");
+        checkImage = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\checkImage (1).jpg");
+
+        button = new JButton();
+        button.setText("Submit");
         button.addActionListener(this);
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout());
+        checkBox = new JCheckBox();
+        checkBox.setText("I'm not a robot");
+        checkBox.setFocusable(false);
+        checkBox.setFont(new Font("Consolas", Font.PLAIN, 35));
+        checkBox.setIcon(xImage);
+        checkBox.setSelectedIcon(checkImage);
         
-        
-        textField.setPreferredSize(new Dimension(250,40));
-        textField.setBackground(Color.black);
-        textField.setForeground(Color.green);
-        textField.setFont(new Font("Arial",Font.BOLD,25));
-
+        this.add(checkBox);
         this.add(button);
-        this.add(textField);
         this.pack();
         this.setVisible(true);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button) {
-            button.setEnabled(false);
-            textField.setEditable(false);
-            System.out.println("Hello "+textField.getText());
+            System.out.println(checkBox.isSelected());
         }
     }
 }
