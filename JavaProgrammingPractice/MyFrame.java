@@ -1,70 +1,61 @@
 import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class MyFrame extends JFrame implements KeyListener {
+public class MyFrame implements MouseListener {
 
-    JLabel background;
-    JLabel pacman;
+    JFrame frame;
+    JLabel label;
+    ImageIcon normal;
+    ImageIcon hovered;
+    ImageIcon clicked;
+    ImageIcon pressed;
 
     MyFrame() {
 
-        ImageIcon image = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\PackmanBackground.jpg");
-        ImageIcon image2 = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\pacman (1).png");
+        normal = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\normal.png");
+        hovered = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\hovered.png");
+        clicked = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\clicked.png");
+        pressed = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\pressed.png");
 
-        this.setTitle("Fake Pacman Game");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600,600);
-        this.setLayout(null);
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(624,624);
+        frame.setLayout(null);
 
-        background = new JLabel();
-        background.setBounds(0,0,600,600);
-        background.setIcon(image);
-        background.setOpaque(true);
+        label = new JLabel();
+        label.setBounds(0,0,624,624);
+        label.setIcon(normal);
+        label.addMouseListener(this);
 
-        pacman = new JLabel();
-        pacman.setBounds(285,290,35,35);
-        pacman.setIcon(image2);
-        pacman.setOpaque(true);
-
-
-        JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setBounds(0,0,600,600);
-        layeredPane.add(background,Integer.valueOf(0));
-        layeredPane.add(pacman,Integer.valueOf(1));
-
-        this.addKeyListener(this);
-        this.add(layeredPane);
-        this.setVisible(true);
+        frame.add(label);
+        frame.setVisible(true);
 
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        switch(e.getKeyChar()) {
-            case 'a':
-                pacman.setLocation(pacman.getX()-3, pacman.getY());
-                break;
-            case 'd':
-                pacman.setLocation(pacman.getX()+3, pacman.getY());
-                break;
-            case 'w':
-                pacman.setLocation(pacman.getX(), pacman.getY()-3);
-                break;
-            case 's':
-                pacman.setLocation(pacman.getX(), pacman.getY()+3);
-                break;
-        }
+    public void mouseClicked(MouseEvent e) {
+        label.setIcon(clicked);
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-
+    public void mousePressed(MouseEvent e) {
+        label.setIcon(pressed);
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-//        System.out.println(e.getKeyChar());
-//        System.out.println(e.getKeyCode());
+    public void mouseReleased(MouseEvent e) {
+        label.setIcon(pressed);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        label.setIcon(hovered);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        label.setIcon(normal);
     }
 }
