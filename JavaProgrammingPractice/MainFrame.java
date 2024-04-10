@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Testing implements ActionListener {
+public class MainFrame implements ActionListener {
 
     JFrame frame = new JFrame();
 
@@ -34,7 +34,7 @@ public class Testing implements ActionListener {
     ImageIcon AuthorPOVImg = new ImageIcon("C:\\Users\\Jonel Villaver\\Pictures\\AtomicHabits (1).jpg");
     ImageIcon PsychMoneyImg = new ImageIcon("C:\\Users\\Jonel Villaver\\Downloads\\AuthorPOV.jpg");
 
-    Testing() {
+    MainFrame() {
         frame.setTitle("National University Library System");
         frame.setSize(1800, 1000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
