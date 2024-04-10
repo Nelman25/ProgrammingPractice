@@ -1,50 +1,33 @@
-function generatePassword(
-  passwordLength,
-  includesLowerCase,
-  includesUpperCase,
-  includesNumbers,
-  includesSymbols
-) {
-  const lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-  const upperCaseChars = "ABCDEFGHIJKLOMNOPQRSTUVWXYZ";
-  const numberChars = "0123456789";
-  const symbolChars = "!@#$%^&*()_+";
+// Example of Function declaration
 
-  let allowedChars = "";
-  let password = "";
+const numbers = [1,2,3,4,5,6,7,8,9,10];
 
-  allowedChars += includesLowerCase ? lowerCaseChars : "";
-  allowedChars += includesUpperCase ? upperCaseChars : "";
-  allowedChars += includesNumbers ? numberChars : "";
-  allowedChars += includesSymbols ? symbolChars : "";
+// const squaredNumbers = numbers.map(square);
 
-  if (passwordLength <= 0) {
-    return `The password length must be more than 1`;
-  }
-  if (allowedChars === 0) {
-    return `Please select atleast 1 condition`;
-  }
+// console.log(squaredNumbers);
 
-  for (let i = 0; i < passwordLength; i++) {
-    const randomIndex = Math.floor(Math.random() * allowedChars.length);
+// function square(element) {
+//     return Math.pow(element,2);
+// }
 
-    password += allowedChars[randomIndex];
-  }
-  return password;
-}
 
-const passwordLength = 12;
-const includesLowerCase = true;
-const includesUpperCase = true;
-const includesNumbers = true;
-const includesSymbols = true;
+// Example of function expressions
 
-const password = generatePassword(
-  passwordLength,
-  includesLowerCase,
-  includesUpperCase,
-  includesNumbers,
-  includesSymbols
-);
+const squaredNumbers = numbers.map(function(element){
+    return Math.pow(element,2);
+});
 
-console.log(`Generated password: ${password}`);
+const cubedNumbers = numbers.map(function(element) {
+    return Math.pow(element,3);
+});
+const raisedTo4 = numbers.map(function(element) {
+    return Math.pow(element,4);
+});
+const raisedTo5 = numbers.map(function(element) {
+    return Math.pow(element,5);
+});
+
+console.log(squaredNumbers);
+console.log(cubedNumbers);
+console.log(raisedTo4);
+console.log(raisedTo5);
