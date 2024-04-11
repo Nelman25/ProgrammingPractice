@@ -1,28 +1,17 @@
-// Object JavaScript practice
-
 const person1 = {
-    FirstName: "Dharilyn",
-    LastName: "Taladro",
-    age: 19,
-    isEmployed: false,
-    SayHello: () => console.log("Hello!")
+    name: "Jonel",
+    faveFood: "hamburger",
+    sayHello: () => console.log(`Hello ${this.name}!`),
+    eat: function(){console.log(`${this.name} is eating ${this.faveFood}`)},
 }
 const person2 = {
-    FirstName: "Jonel", 
-    LastName: "Villaver",
-    age: 19,
-    isEmployed: false,
-    SayHello: () => console.log("HELLO!")
+    name: "Dha",
+    faveFood: "chicken fillet",
+    sayHello: () => console.log(`Hello ${this.name}!`),
+    eat: function(){console.log(`${this.name} is eating ${this.faveFood}`)},
 }
+person1.sayHello();
+person1.eat();
 
-console.log(person1.FirstName);
-console.log(person1.LastName);
-console.log(person1.age);
-console.log(person1.isEmployed);
-person1.SayHello();
-
-console.log(person2.FirstName);
-console.log(person2.LastName);
-console.log(person2.age);
-console.log(person2.isEmployed);
-person2.SayHello();
+person2.sayHello();
+person2.eat();
