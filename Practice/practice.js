@@ -1,17 +1,18 @@
-const person1 = {
-    name: "Jonel",
-    faveFood: "hamburger",
-    sayHello: () => console.log(`Hello ${this.name}!`),
-    eat: function(){console.log(`${this.name} is eating ${this.faveFood}`)},
+function Car (make,model,year,color) {
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
 }
-const person2 = {
-    name: "Dha",
-    faveFood: "chicken fillet",
-    sayHello: () => console.log(`Hello ${this.name}!`),
-    eat: function(){console.log(`${this.name} is eating ${this.faveFood}`)},
-}
-person1.sayHello();
-person1.eat();
 
-person2.sayHello();
-person2.eat();
+const car1 = new Car("Tesla","model3",2024,"yellow");
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+
+const car2 = new Car("Chevrolet","mustang",2025,"lightblue");
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
