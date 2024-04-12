@@ -1,20 +1,30 @@
 // static = defines properties and methods that belongs to a class itself rather than
 //          objects created from that class (class owns anything static, not the object);
 
-class MathUtil {
-    static PI = 3.14159;
+class User {
+    static userCount = 0;
 
-    static getDiameter(radius) {
-        return radius * 2;
+    constructor(username) {
+        this.username = username;
+        User.userCount++;
     }
-    static getCircumference(radius) {
-        return 2 * this.PI * radius;
+
+    static getUserCounter() {
+        console.log(`There are ${User.userCount} users online.`)
     }
-    static getArea(radius) {
-        return this.PI * radius * radius;
+    sayHello() {
+        console.log(`Hello! my name is ${this.username}`);
     }
 }
 
-console.log(`Area  = ${MathUtil.getArea(5)}`);
-console.log(`Circumference = ${MathUtil.getCircumference(5)}`);
-console.log(`Diameter = ${MathUtil.getDiameter(5)}`);
+const user1 = new User("Spongebob");
+const user2 = new User("Patrick");
+const user3 = new User("Sandy");
+const user4 = new User("BongBong Marcos");
+
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();
+user4.sayHello();
+
+User.getUserCounter();
