@@ -1,30 +1,46 @@
-// static = defines properties and methods that belongs to a class itself rather than
-//          objects created from that class (class owns anything static, not the object);
+// inheritance = it allows a new class to inherit properties and methods 
+//               from an existing class (parent class). User keyword "extends".
 
-class User {
-    static userCount = 0;
+class Animal {
+    alive = true;
 
-    constructor(username) {
-        this.username = username;
-        User.userCount++;
+    eat() {
+        console.log(`This ${this.name} is eating`);
     }
-
-    static getUserCounter() {
-        console.log(`There are ${User.userCount} users online.`)
-    }
-    sayHello() {
-        console.log(`Hello! my name is ${this.username}`);
+    sleep() {
+        console.log(`This ${this.name} is sleeping`);
     }
 }
 
-const user1 = new User("Spongebob");
-const user2 = new User("Patrick");
-const user3 = new User("Sandy");
-const user4 = new User("BongBong Marcos");
+class Rabbit extends Animal {
+    name = "Rabbit";
 
-user1.sayHello();
-user2.sayHello();
-user3.sayHello();
-user4.sayHello();
+    static run(){
+        console.log(`This ${this.name} is running`);
+    }
+}
 
-User.getUserCounter();
+class Fish extends Animal {
+    name = "Fish";
+
+    static swim() {
+        console.log(`This ${this.name} is swimming`);
+    }
+}
+
+class Hawk extends Animal {
+    name = "Hawk";
+
+    static fly() {
+        console.log(`This ${this.name} is flying`);
+    }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(rabbit.alive);
+rabbit.eat();
+rabbit.sleep();
+console.log(Rabbit.run()); // using static keyword 
