@@ -1,26 +1,20 @@
-class Products {
-    constructor(name, price) {
-        this.name = name;
-        this.price = price;
+// static = defines properties and methods that belongs to a class itself rather than
+//          objects created from that class (class owns anything static, not the object);
+
+class MathUtil {
+    static PI = 3.14159;
+
+    static getDiameter(radius) {
+        return radius * 2;
     }
-    displayProduct() {
-        console.log(`Product: ${this.name}`);
-        console.log(`Price: $${this.price}`);
+    static getCircumference(radius) {
+        return 2 * this.PI * radius;
     }
-    calculateTotal(salesTax) {
-        return this.price + (this.price * salesTax);
+    static getArea(radius) {
+        return this.PI * radius * radius;
     }
 }
 
-const salesTax = 0.1;
-const Tshirt = new Products("T-shirt",19.99);
-const Bag = new Products("Bag",65.99);
-const TshirtTotal = Tshirt.calculateTotal(salesTax);
-const BagTotal = Bag.calculateTotal(salesTax);
-
-Tshirt.displayProduct();
-console.log(`Total price (with tax): $${TshirtTotal.toFixed(2)}`);
-console.log();
-
-Bag.displayProduct();
-console.log(`Total price (with tax): $${BagTotal.toFixed(2)}`);
+console.log(`Area  = ${MathUtil.getArea(5)}`);
+console.log(`Circumference = ${MathUtil.getCircumference(5)}`);
+console.log(`Diameter = ${MathUtil.getDiameter(5)}`);
