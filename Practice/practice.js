@@ -2,40 +2,50 @@
 //  setter = special method that makes a property writeable
 //  validate and modify a value when reading/writing a property
 
-class Rectangle {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
+class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
   }
-  set width(newWidth) {
-    if (newWidth > 0) {
-      this._width = newWidth;
+  set firstName(newFirstName) {
+    if (typeof newFirstName === "string" && newFirstName.length > 0) {
+      this._firstName = newFirstName;
     } else {
-      console.error(`The width must be a positive number`);
+      console.error(`First name must be a non-empty string`);
     }
   }
-  set height(newHeight) {
-    if (newHeight > 0) {
-      this._height = newHeight;
+  set lastName(newLastName) {
+    if (typeof newLastName === "string" && newLastName.length > 0) {
+      this._lastName = newLastName;
     } else {
-      console.error(`The height must be a positive number`);
+      console.error(`Last name must be a non-empty string`);
     }
   }
-  get width() {
-    return `${this._width.toFixed(1)}cm`;
+  set age(newAge) {
+    if (typeof newAge === "number" && newAge >= 0) {
+      this._age = newAge;
+    } else {
+        console.error(`Age must be a positive number`);
+    }
   }
-  get height() {
-    return `${this._height.toFixed(1)}cm`;
+  get firstName() {
+    return this._firstName;
   }
-  get area() {
-    return `${(this._height * this._width).toFixed(2)}cm`;
+  get lastName() {
+    return this._lastName;
+  }
+  get fullName() {
+    return `${this._firstName} ${this._lastName}`;
+  }
+  get age() {
+    return this._age;
   }
 }
 
-const rectangle = new Rectangle(-100000, "pizza");
+const person = new Person("BongBong", "Marcos", 99);
 
-rectangle.width = 16;
-rectangle.height = 14;
-console.log(rectangle.width);
-console.log(rectangle.height);
-console.log(rectangle.area);
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.fullName);
+console.log(person.age);
