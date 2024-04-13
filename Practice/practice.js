@@ -1,68 +1,41 @@
-// super = keyword used in classes to call the constructor or acces the properties 
-//         and methods of a parent (also known as superclass) 
-//         this = this object
-//         super = the parent
+//  getter = special method that makes a property readable
+//  setter = special method that makes a property writeable
+//  validate and modify a value when reading/writing a property
 
-class Animal {
-    constructor(name,age) {
-        this.name = name;
-        this.age = age; 
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+  set width(newWidth) {
+    if (newWidth > 0) {
+      this._width = newWidth;
+    } else {
+      console.error(`The width must be a positive number`);
     }
-    move(speed) {
-        console.log(`This ${this.name} moves at a speed of ${speed}mph`)
+  }
+  set height(newHeight) {
+    if (newHeight > 0) {
+      this._height = newHeight;
+    } else {
+      console.error(`The height must be a positive number`);
     }
-}
-class Rabbit extends Animal {
-    constructor(name,age,runSpeed) {
-        super(name,age);
-        this.runSpeed = runSpeed;
-    }
-    run() {
-        console.log(`This ${this.name} can run`);
-        super.move(this.runSpeed);
-    }
-}
-
-class Fish extends Animal {
-    constructor(name,age,swimSpeed) {
-        super(name,age);
-        this.swimSpeed = swimSpeed;
-    }
-    swim() {
-        console.log(`This ${this.name} can swim`);
-        super.move(this.swimSpeed);
-    }
+  }
+  get width() {
+    return `${this._width.toFixed(1)}cm`;
+  }
+  get height() {
+    return `${this._height.toFixed(1)}cm`;
+  }
+  get area() {
+    return `${(this._height * this._width).toFixed(2)}cm`;
+  }
 }
 
-class Hawk extends Animal {
-    constructor(name,age,flySpeed) {
-        super(name,age);
-        this.flySpeed = flySpeed;
-    }
-    fly() {
-        console.log(`This ${this.name} can fly`);
-        super.move(this.flySpeed);
-    }
-}
+const rectangle = new Rectangle(-100000, "pizza");
 
-const rabbit = new Rabbit("rabbit",3,15);
-const fish = new Fish("fish",5,20);
-const hawk = new Hawk("hawk",10,200);
-
-console.log(rabbit.name);
-console.log(rabbit.age);
-console.log(rabbit.runSpeed);
-rabbit.run();
-
-console.log(fish.name);
-console.log(fish.age);
-console.log(fish.swimSpeed);
-fish.swim();
-
-console.log(hawk.name);
-console.log(hawk.age);
-console.log(hawk.flySpeed);
-hawk.fly();
-
-
-
+rectangle.width = 16;
+rectangle.height = 14;
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
